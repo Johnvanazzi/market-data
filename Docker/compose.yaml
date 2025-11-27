@@ -1,0 +1,14 @@
+name: "market-data"
+
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: marketdata
+    volumes:
+      - ./mongo-setup.js:/docker-entrypoint-initdb.d/mongo-setup.js:ro
